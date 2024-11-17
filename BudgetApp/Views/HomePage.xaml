@@ -1,0 +1,72 @@
+<ContentPage BackgroundColor="{AppThemeBinding Light={StaticResource BackgroundColor}, Dark={StaticResource BackgroundColor}}"
+             xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="BudgetApp.Views.HomePage">
+
+    <!-- Main Layout for the page -->
+    <StackLayout VerticalOptions="FillAndExpand" Padding="10">
+
+        <!-- Header Section -->
+        <Label Text="Welcome to Your Budget App"
+               FontSize="Large"
+               HorizontalOptions="Center"
+               Padding="10,20,10,10"
+               TextColor="{AppThemeBinding Light={StaticResource TextColor}, Dark={StaticResource TextColor}}" />
+
+        <!-- Body Section for Budget Summary -->
+        <Frame BackgroundColor="#EFEFEF"
+               CornerRadius="10"
+               Padding="15"
+               Margin="10,5,10,5">
+            <StackLayout>
+                <Label Text="Budget Summary"
+                       FontSize="Medium"
+                       FontAttributes="Bold"
+                       HorizontalOptions="Center"
+                       TextColor="{AppThemeBinding Light={StaticResource TextColor}, Dark={StaticResource TextColor}}" />
+                <Label Text="Total Budget: $0.00"
+                       FontSize="Small"
+                       Margin="0,5,0,0"
+                       TextColor="{AppThemeBinding Light={StaticResource TextColor}, Dark={StaticResource TextColor}}" />
+                <Label Text="Expenses: $0.00"
+                       FontSize="Small"
+                       Margin="0,5,0,0"
+                       TextColor="{AppThemeBinding Light={StaticResource TextColor}, Dark={StaticResource TextColor}}" />
+                <Label Text="Balance: $0.00"
+                       FontSize="Small"
+                       Margin="0,5,0,0"
+                       TextColor="{AppThemeBinding Light={StaticResource TextColor}, Dark={StaticResource TextColor}}" />
+            </StackLayout>
+        </Frame>
+
+        <!-- Placeholder for additional content if needed -->
+        <StackLayout VerticalOptions="FillAndExpand">
+            <!-- Additional elements for other summaries or data can go here -->
+        </StackLayout>
+
+        <!-- Navigation Bar at the Bottom -->
+        <Grid VerticalOptions="End" HeightRequest="60" ColumnSpacing="10">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <!-- Home Button -->
+            <Button Text="Home"
+                    Grid.Column="0"
+                    Command="{Binding NavigateHomeCommand}" />
+
+            <!-- Controls Button (Add to Budget/Modifications) -->
+            <Button Text="Controls"
+                    Grid.Column="1"
+                    Command="{Binding NavigateControlsCommand}" />
+
+            <!-- Settings Button -->
+            <Button Text="Settings"
+                    Grid.Column="2"
+                    Clicked="OnSettingsButtonClicked" />
+        </Grid>
+
+    </StackLayout>
+</ContentPage>
