@@ -1,5 +1,4 @@
-<ContentPage BackgroundColor="{AppThemeBinding Light={StaticResource BackgroundColor}, Dark={StaticResource BackgroundColor}}"
-             xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="BudgetApp.Views.HomePage">
 
@@ -10,32 +9,30 @@
         <Label Text="Welcome to Your Budget App"
                FontSize="Large"
                HorizontalOptions="Center"
-               Padding="10,20,10,10"
-               TextColor="{AppThemeBinding Light={StaticResource TextColor}, Dark={StaticResource TextColor}}" />
+               Padding="10,20,10,10"/>
 
         <!-- Body Section for Budget Summary -->
-        <Frame BackgroundColor="#EFEFEF"
+        <Frame
                CornerRadius="10"
                Padding="15"
-               Margin="10,5,10,5">
-            <StackLayout>
+               Margin="10,5,0,5">
+            <StackLayout Padding="10">
                 <Label Text="Budget Summary"
                        FontSize="Medium"
                        FontAttributes="Bold"
-                       HorizontalOptions="Center"
-                       TextColor="{AppThemeBinding Light={StaticResource TextColor}, Dark={StaticResource TextColor}}" />
-                <Label Text="Total Budget: $0.00"
-                       FontSize="Small"
-                       Margin="0,5,0,0"
-                       TextColor="{AppThemeBinding Light={StaticResource TextColor}, Dark={StaticResource TextColor}}" />
-                <Label Text="Expenses: $0.00"
-                       FontSize="Small"
-                       Margin="0,5,0,0"
-                       TextColor="{AppThemeBinding Light={StaticResource TextColor}, Dark={StaticResource TextColor}}" />
-                <Label Text="Balance: $0.00"
-                       FontSize="Small"
-                       Margin="0,5,0,0"
-                       TextColor="{AppThemeBinding Light={StaticResource TextColor}, Dark={StaticResource TextColor}}" />
+                       HorizontalOptions="Center" />
+                <Label Text="Total Budget:" 
+                       FontSize="Medium" />
+                <Label Text="{Binding TotalBudget}"
+                       FontSize="Medium" />
+                <Label Text="Total Expenses:" 
+                       FontSize="Medium" />
+                <Label Text="{Binding TotalExpenses}" 
+                       FontSize="Medium" />
+                <Label Text="Remaining Balance:" 
+                       FontSize="Medium" />
+                <Label Text="{Binding RemainingBalance}" 
+                       FontSize="Medium" />
             </StackLayout>
         </Frame>
 
@@ -45,7 +42,7 @@
         </StackLayout>
 
         <!-- Navigation Bar at the Bottom -->
-        <Grid VerticalOptions="End" HeightRequest="60" ColumnSpacing="10">
+        <Grid VerticalOptions="End" HeightRequest="60">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*" />
                 <ColumnDefinition Width="*" />
@@ -54,18 +51,21 @@
 
             <!-- Home Button -->
             <Button Text="Home"
-                    Grid.Column="0"
-                    Command="{Binding NavigateHomeCommand}" />
+                 Grid.Column="0"
+                 Clicked="OnNavHomeButton"
+                 Margin="1,0"/>
 
             <!-- Controls Button (Add to Budget/Modifications) -->
             <Button Text="Controls"
-                    Grid.Column="1"
-                    Command="{Binding NavigateControlsCommand}" />
+                 Grid.Column="1"
+                 Clicked="OnNavControlsButton" 
+                 Margin="1,0"/>
 
             <!-- Settings Button -->
             <Button Text="Settings"
-                    Grid.Column="2"
-                    Clicked="OnSettingsButtonClicked" />
+                 Grid.Column="2"
+                 Clicked="OnNavSettingsButton"
+                 Margin="1,0"/>
         </Grid>
 
     </StackLayout>

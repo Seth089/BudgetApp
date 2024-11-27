@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="BudgetApp.Views.Monthly_budget.MonthlyBudgetPage1"
+             Title="INCOME">
+
+    <!-- Main Layout -->
+    <VerticalStackLayout Padding="20">
+        <!-- Month Picker -->
+        <Picker x:Name="MonthPicker"
+                Title="Select Month"
+                SelectedIndexChanged="OnMonthSelected" />
+
+        <!-- Instructions -->
+        <Label Text="Enter numbers (press Enter to add):"
+               FontSize="Medium"
+               HorizontalOptions="Center" />
+
+        <!-- Input TextBox -->
+        <Frame Margin="0,20,0,0"
+               Padding="5"
+               BorderColor="Gray"
+               CornerRadius="5"
+               HasShadow="False"
+               MinimumHeightRequest="150">
+            <Editor x:Name="MultiLineInput"
+                    Text="1234&#10;5678"
+                    VerticalOptions="FillAndExpand"
+                    HorizontalOptions="FillAndExpand"
+                    TextChanged="OnTextChanged"
+                    Focused="OnEditorFocused"
+                    Placeholder="Enter numbers..." />
+        </Frame>
+
+        <!-- Total Display -->
+        <Label x:Name="TotalIncome"
+               Margin="0,10,0,0"
+               Text="Total: $6912" 
+               FontSize="Large"
+               TextColor="Green"
+               HorizontalOptions="Center" />
+
+        <!-- Continue Button -->
+        <Button Margin="0,10,0,0"
+                Text="Continue"
+                FontSize="Medium"
+                Clicked="OnContinueClicked"
+                HorizontalOptions="Center" />
+    </VerticalStackLayout>
+
+</ContentPage>

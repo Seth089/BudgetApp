@@ -1,24 +1,43 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="BudgetApp.Views.SettingsPage"
-             Title="SettingsPage">
+             x:Class="BudgetApp.Views.ControlsPage"
+             Title="ControlsPage">
 
-
+    <!-- Main Layout -->
     <StackLayout VerticalOptions="FillAndExpand" Padding="10">
 
-        <StackLayout Padding="20">
-            <Label Text="Enable Dark Mode"
-               FontSize="Medium"
-               TextColor="Yellow"
-               HorizontalOptions="Start"/>
-            
-        </StackLayout>
+        <!-- Header Section -->
+        <Label
+            Text="Welcome&#10;test"
+            VerticalOptions="Center"
+            HorizontalOptions="Center" />
 
+        <Label
+            Text="Do Monthly Expense &#10; -Do the total but number enter math"
+            VerticalOptions="Center"
+            HorizontalOptions="Center" />
+        <Label
+            Text="Debt/Loans"
+            VerticalOptions="Center"
+            HorizontalOptions="Center" />
+        <Label
+            Text="Savings"
+            VerticalOptions="Center"
+            HorizontalOptions="Center" />
+        <Label
+            Text="Return"
+            VerticalOptions="Center"
+            HorizontalOptions="Center" />
+        <Label
+            Text="Purchase?"
+            VerticalOptions="Center"
+            HorizontalOptions="Center" />
 
         <!-- Placeholder for additional content if needed -->
-        <StackLayout VerticalOptions="FillAndExpand">
-            <!-- Additional elements for other summaries or data can go here -->
+        <StackLayout VerticalOptions="FillAndExpand" Margin="30">
+            <Button Text="New Monthly Budget"
+                    Clicked="NavigateToMonthlyBudgetPage1Button_Clicked"/>
         </StackLayout>
 
         <!-- Navigation Bar at the Bottom -->
@@ -31,12 +50,14 @@
 
             <!-- Home Button -->
             <Button Text="Home"
+                 
                  Grid.Column="0"
                  Clicked="OnNavHomeButton"
                  Margin="1,0"/>
 
             <!-- Controls Button (Add to Budget/Modifications) -->
             <Button Text="Controls"
+                 BackgroundColor="#009ee9"
                  Grid.Column="1"
                  Clicked="OnNavControlsButton" 
                  Margin="1,0"/>
@@ -47,6 +68,6 @@
                  Clicked="OnNavSettingsButton"
                  Margin="1,0"/>
         </Grid>
-
+        
     </StackLayout>
 </ContentPage>
